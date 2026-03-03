@@ -346,7 +346,13 @@ nav .nav-links a.active { color: var(--accent); }
   background: var(--surface2);
   border-right: 1px solid var(--border);
   position: relative;
+
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
 .project-card:nth-child(even) .project-visual {
   border-right: none;
   border-left: 1px solid var(--border);
@@ -355,13 +361,20 @@ nav .nav-links a.active { color: var(--accent); }
 .project-screenshot {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: top center;
   display: block;
+
+  object-fit: contain;
+  object-position: center;
+
+  /* subtle “designed” frame */
+  background: var(--bg);
+  border: 1px solid var(--border2);
+
   transition: transform 0.5s ease;
 }
+
 .project-card:hover .project-screenshot {
-  transform: scale(1.04) translateY(-2px);
+  transform: scale(1.03);
 }
 
 /* Info panel */

@@ -167,37 +167,6 @@
         </div>
       </div>
 
-      <!-- MicroFlix -->
-      <div class="project-card">
-        <div class="project-visual">
-          <img class="project-screenshot" src="preview-images/MicroFlixPreview.png" alt="MicroFlix preview" loading="lazy"/>        
-        </div>
-        <div class="project-body">
-          <div class="project-type">Microservices Platform &middot; Architecture Study</div>
-          <div class="project-header">
-            <div class="project-title">MicroFlix</div>
-            <span class="project-no-link">Not Currently Hosted</span>
-          </div>
-          <p class="project-one-liner">
-            An IMDb-style movie discovery platform built to practice production-style backend architecture:
-            independent services with clear boundaries that communicate cleanly and deploy independently.
-          </p>
-          <div class="project-stack">
-            <span class="project-tag">Java</span>
-            <span class="project-tag">Spring Boot</span>
-            <span class="project-tag">Eureka</span>
-            <span class="project-tag">Next.js</span>
-            <span class="project-tag">PostgreSQL</span>
-            <span class="project-tag">Docker</span>
-            <span class="project-tag">AWS EC2</span>
-          </div>
-          <ul class="project-bullets">
-            <li>Service discovery via Eureka; stateless JWT auth; each service independently deployable</li>
-            <li>PostgreSQL index tuning via EXPLAIN ANALYZE lifted throughput from ~200 &rarr; ~550 req/s at 20 concurrent users</li>
-            <li>Containerized with Docker; GitHub Actions CI builds &amp; pushes images on every merge; deployed on AWS EC2</li>
-          </ul>
-        </div>
-      </div>
       <!-- WS-PASS -->
       <div class="project-card">
         <div class="project-visual">
@@ -233,6 +202,38 @@
             <li>Artifact-first orchestration: deterministic run state + named artifacts for review, reproducibility, and auditability.</li>
             <li>Workflow-run agents: planner → decomposition → approval → GitHub sync executed via Actions with clear status visibility.</li>
             <li>Governance by design: explicit approval gate before repo writes + token/cost observability to prevent runaway execution.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- MicroFlix -->
+      <div class="project-card">
+        <div class="project-visual">
+          <img class="project-screenshot" src="preview-images/MicroFlixPreview.png" alt="MicroFlix preview" loading="lazy"/>        
+        </div>
+        <div class="project-body">
+          <div class="project-type">Microservices Platform &middot; Architecture Study</div>
+          <div class="project-header">
+            <div class="project-title">MicroFlix</div>
+            <span class="project-no-link">Not Currently Hosted</span>
+          </div>
+          <p class="project-one-liner">
+            An IMDb-style movie discovery platform built to practice production-style backend architecture:
+            independent services with clear boundaries that communicate cleanly and deploy independently.
+          </p>
+          <div class="project-stack">
+            <span class="project-tag">Java</span>
+            <span class="project-tag">Spring Boot</span>
+            <span class="project-tag">Eureka</span>
+            <span class="project-tag">Next.js</span>
+            <span class="project-tag">PostgreSQL</span>
+            <span class="project-tag">Docker</span>
+            <span class="project-tag">AWS EC2</span>
+          </div>
+          <ul class="project-bullets">
+            <li>Service discovery via Eureka; stateless JWT auth; each service independently deployable</li>
+            <li>PostgreSQL index tuning via EXPLAIN ANALYZE lifted throughput from ~200 &rarr; ~550 req/s at 20 concurrent users</li>
+            <li>Containerized with Docker; GitHub Actions CI builds &amp; pushes images on every merge; deployed on AWS EC2</li>
           </ul>
         </div>
       </div>

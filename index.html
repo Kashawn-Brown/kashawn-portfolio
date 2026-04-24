@@ -226,22 +226,25 @@
             <span class="project-no-link">Not Currently Hosted</span>
           </div>
           <p class="project-one-liner">
-            An IMDb-style movie discovery platform built to practice production-style backend architecture:
-            independent services with clear boundaries that communicate cleanly and deploy independently.
+            An IMDb-style movie discovery platform built to practice production-style backend architecture: 
+            independent services with clear boundaries, real cross-service authentication, and a deployment shape that mirrors a real-world setup.
           </p>
           <div class="project-stack">
             <span class="project-tag">Java</span>
             <span class="project-tag">Spring Boot</span>
+            <span class="project-tag">Spring Cloud Gateway</span>
             <span class="project-tag">Eureka</span>
-            <span class="project-tag">Next.js</span>
             <span class="project-tag">PostgreSQL</span>
+            <span class="project-tag">Next.js</span>
             <span class="project-tag">Docker</span>
             <span class="project-tag">AWS EC2</span>
+            <span class="project-tag">GitHub Actions</span>
           </div>
           <ul class="project-bullets">
-            <li>Service discovery via Eureka; stateless JWT auth; each service independently deployable</li>
-            <li>PostgreSQL index tuning via EXPLAIN ANALYZE lifted throughput from ~200 &rarr; ~550 req/s at 20 concurrent users</li>
-            <li>Containerized with Docker; GitHub Actions CI builds &amp; pushes images on every merge; deployed on AWS EC2</li>
+            <li>Four backend services behind a Spring Cloud Gateway with parallel aggregation endpoints</li>
+            <li>Stateless JWT auth verified locally per service; no central auth round-trip</li>
+            <li>Containerized with Docker; GitHub Actions CI builds and pushes images, deploys ordered behind successful CI</li>
+            <li>Deployed to AWS EC2 with real production debugging — networking, sizing, disk pressure</li>
           </ul>
         </div>
       </div>

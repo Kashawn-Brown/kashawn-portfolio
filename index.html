@@ -42,7 +42,7 @@
   <!-- INTRO -->
   <div class="intro-banner fade-in">
     <p>
-      I&rsquo;m a backend-leaning <strong>software developer</strong> who specializes in building the backend systems that make products work.
+      I&rsquo;m a full-stack <strong>software developer</strong> who specializes in building the backend systems that make products work.
       APIs, databases, authentication, and cloud deployment. I build things end-to-end, ship them to real users, and keep improving them. 
       Most recently I built and launched <strong>Career-Tracker.ca</strong>, a job application tracker used by real people to manage their applications, contacts, and related documents.
     </p>
@@ -71,7 +71,7 @@
     <div class="about-grid">
       <div class="about-block">
         <div class="about-block-label">Education</div>
-        <div class="about-block-value">BSc Computer Science<br/>University of Western Ontario, &rsquo;23</div>
+        <div class="about-block-value">B.S. Computer Science — University of Western Ontario &rsquo;23</div>
       </div>
       <div class="about-block">
         <div class="about-block-label">Location</div>
@@ -94,27 +94,27 @@
     <div class="skills-grid">
       <div class="skill-block">
         <div class="skill-block-label">Languages</div>
-        <div class="skill-block-tags">Java, TypeScript, JavaScript, Python, C#, SQL</div>
+        <div class="skill-block-tags">Java, TypeScript, Python, Go, JavaScript, SQL</div>
       </div>
       <div class="skill-block">
         <div class="skill-block-label">Backend</div>
-        <div class="skill-block-tags">Spring Boot, Node.js (Fastify / Express), REST APIs, JWT &amp; Auth workflows</div>
+        <div class="skill-block-tags">Spring Boot, Node.js (Fastify / Express), REST APIs, JWT, OAuth2, OpenAI API, Anthropic API, Claude Code (skills, subagents) </div>
       </div>
       <div class="skill-block">
         <div class="skill-block-label">Data</div>
-        <div class="skill-block-tags">PostgreSQL, MongoDB, Prisma, Redis</div>
+        <div class="skill-block-tags">PostgreSQL, Redis, MongoDB, MySQL, Prisma, Firebase</div>
       </div>
       <div class="skill-block">
         <div class="skill-block-label">DevOps &amp; Cloud</div>
-        <div class="skill-block-tags">Docker, GCP (Cloud Run, Cloud Build, Cloud SQL), AWS (EC2), GitHub Actions CI/CD, Vercel</div>
+        <div class="skill-block-tags">GCP (Cloud Run, Cloud Build, Cloud SQL), AWS (EC2), Docker, GitHub Actions CI/CD, Prometheus, Grafana, Vercel</div>
       </div>
       <div class="skill-block">
-        <div class="skill-block-label">Frontend (Supporting)</div>
-        <div class="skill-block-tags">React, Next.js, HTML / CSS</div>
+        <div class="skill-block-label">Frontend</div>
+        <div class="skill-block-tags">React, Next.js, React Native, Expo, Tailwind CSS, HTML, CSS </div>
       </div>
       <div class="skill-block">
         <div class="skill-block-label">Testing &amp; Quality</div>
-        <div class="skill-block-tags">Jest, JUnit / Mockito, integration tests, k6 load testing, Swagger / OpenAPI</div>
+        <div class="skill-block-tags">Jest, JUnit, Mockito, Postman, k6 load testing, Swagger / OpenAPI</div>
       </div>
     </div>
   </div>
@@ -175,45 +175,6 @@
         </div>
       </div>
 
-      <!-- WS-PASS -->
-      <div class="project-card">
-        <div class="project-visual">
-          <img class="project-screenshot" src="preview-images/WS-PASSPreview.png" alt="WS-PASS preview" loading="lazy"/>        
-        </div>
-        <div class="project-body">
-          <div class="project-type">Agentic DevOps System</div>
-          <div class="project-header">
-            <div class="project-title">WS - PASS</div>
-            <a class="project-link" href="https://ws-pass-website.vercel.app/" target="_blank" rel="noopener noreferrer">&#8599; Live Site</a>
-          </div>
-          <p class="project-one-liner">
-            An Agentic DevOps control plane that turns a PRD into a validated architecture pack and an execution plan — with a human stop-line before writing to GitHub.
-
-            We designed and built the system to explore how LLMs can be used to automate software architecture and scaffolding, 
-            while ensuring that human oversight and security controls are in place to prevent unsafe code generation and execution.
-
-            Guardrails, observability, and audit trails keep velocity high without sacrificing uptime or governance.
-
-          </p>
-          <div class="project-stack">
-            <span class="project-tag">TypeScript</span>
-            <span class="project-tag">Next.js</span>
-            <span class="project-tag">Fastify</span>
-            <span class="project-tag">GitHub Actions</span>
-            <span class="project-tag">Zod</span>
-            <span class="project-tag">Anthropic</span>
-            <span class="project-tag">Turborepo</span>
-            <span class="project-tag">AES-GCM Tokens</span>
-            <span class="project-tag">Tailwind v4</span>
-          </div>
-          <ul class="project-bullets">
-            <li>Artifact-first orchestration: deterministic run state + named artifacts for review, reproducibility, and auditability.</li>
-            <li>Workflow-run agents: planner → decomposition → approval → GitHub sync executed via Actions with clear status visibility.</li>
-            <li>Governance by design: explicit approval gate before repo writes + token/cost observability to prevent runaway execution.</li>
-          </ul>
-        </div>
-      </div>
-
       <!-- MicroFlix -->
       <div class="project-card">
         <div class="project-visual">
@@ -253,6 +214,44 @@
         </div>
       </div>
 
+      <!-- WS-PASS -->
+      <div class="project-card">
+        <div class="project-visual">
+          <img class="project-screenshot" src="preview-images/WS-PASSPreview.png" alt="WS-PASS preview" loading="lazy"/>        
+        </div>
+        <div class="project-body">
+          <div class="project-type">Agentic DevOps System</div>
+          <div class="project-header">
+            <div class="project-title">WS - PASS</div>
+            <a class="project-link" href="https://ws-pass-website.vercel.app/" target="_blank" rel="noopener noreferrer">&#8599; Live Site</a>
+          </div>
+          <p class="project-one-liner">
+            An Agentic DevOps control plane that turns a PRD into a validated architecture pack and an execution plan — with a human stop-line before writing to GitHub.
+
+            We designed and built the system to explore how LLMs can be used to automate software architecture and scaffolding, 
+            while ensuring that human oversight and security controls are in place to prevent unsafe code generation and execution.
+
+            Guardrails, observability, and audit trails keep velocity high without sacrificing uptime or governance.
+
+          </p>
+          <div class="project-stack">
+            <span class="project-tag">TypeScript</span>
+            <span class="project-tag">Next.js</span>
+            <span class="project-tag">Fastify</span>
+            <span class="project-tag">GitHub Actions</span>
+            <span class="project-tag">Zod</span>
+            <span class="project-tag">Anthropic</span>
+            <span class="project-tag">Turborepo</span>
+            <span class="project-tag">AES-GCM Tokens</span>
+            <span class="project-tag">Tailwind v4</span>
+          </div>
+          <ul class="project-bullets">
+            <li>Artifact-first orchestration: deterministic run state + named artifacts for review, reproducibility, and auditability.</li>
+            <li>Workflow-run agents: planner → decomposition → approval → GitHub sync executed via Actions with clear status visibility.</li>
+            <li>Governance by design: explicit approval gate before repo writes + token/cost observability to prevent runaway execution.</li>
+          </ul>
+        </div>
+      </div>
 
     </div>
   </div>

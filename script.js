@@ -68,11 +68,104 @@ function initActiveNav() {
   sections.forEach(s => observer.observe(s));
 }
 
+function initProjectsCarousel() {
+  const slides = Array.from(document.querySelectorAll('.project-slide'));
+  if (!slides.length) return;
+
+  const railItems = Array.from(document.querySelectorAll('.rail-item'));
+  const dots = Array.from(document.querySelectorAll('.dot'));
+  const mobileLabel = document.querySelector('[data-mobile-label]');
+  const names = railItems.map(item => item.textContent.trim());
+
+  let activeIndex = -1;
+  let ticking = false;
+
+  function setActive(index) {
+    if (index === activeIndex) return;
+    activeIndex = index;
+    slides.forEach((s, i) => s.classList.toggle('is-active', i === index));
+    railItems.forEach((r, i) => r.classList.toggle('active', i === index));
+    dots.forEach((d, i) => d.classList.toggle('active', i === index));
+    if (mobileLabel && names[index]) mobileLabel.textContent = names[index];
+  }
+
+  function update() {
+    ticking = false;
+    const viewportCenter = window.innerHeight / 2;
+    const falloff = window.innerHeight * 0.7;
+    let closestIndex = 0;
+    let closestDist = Infinity;
+
+    slides.forEach((slide, i) => {
+      const rect = slide.getBoundingClientRect();
+      const slideCenter = rect.top + rect.height / 2;
+      const dist = Math.abs(slideCenter - viewportCenter);
+      const norm = Math.min(dist / falloff, 1);
+
+      slide.style.opacity = (1 - norm * 0.72).toFixed(3);
+      slide.style.transform = `scale(${(1 - norm * 0.1).toFixed(3)})`;
+      slide.style.filter = `blur(${(norm * 2).toFixed(2)}px)`;
+
+      if (dist < closestDist) {
+        closestDist = dist;
+        closestIndex = i;
+      }
+    });
+
+    setActive(closestIndex);
+  }
+
+  function onScroll() {
+    if (!ticking) {
+      ticking = true;
+      requestAnimationFrame(update);
+    }
+  }
+
+  function jumpTo(index) {
+    const target = slides[index];
+    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+
+  [...railItems, ...dots].forEach(el => {
+    el.addEventListener('click', () => {
+      const index = parseInt(el.dataset.target, 10);
+      if (!Number.isNaN(index)) jumpTo(index);
+    });
+  });
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', update);
+  update();
+}
+
+function initProjectGalleries() {
+  document.querySelectorAll('[data-gallery]').forEach(gallery => {
+    const images = Array.from(gallery.querySelectorAll('.gallery-image'));
+    if (images.length <= 1) return;
+
+    let index = Math.max(images.findIndex(img => img.classList.contains('active')), 0);
+
+    function show(newIndex) {
+      images[index].classList.remove('active');
+      index = (newIndex + images.length) % images.length;
+      images[index].classList.add('active');
+    }
+
+    const prevBtn = gallery.querySelector('[data-gallery-prev]');
+    const nextBtn = gallery.querySelector('[data-gallery-next]');
+    if (prevBtn) prevBtn.addEventListener('click', (e) => { e.stopPropagation(); show(index - 1); });
+    if (nextBtn) nextBtn.addEventListener('click', (e) => { e.stopPropagation(); show(index + 1); });
+  });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   initTheme();
   initFadeIns();
   initAnchorFix();
   initActiveNav();
+  initProjectsCarousel();
+  initProjectGalleries();
   const btn = document.getElementById('theme-toggle');
   if (btn) btn.addEventListener('click', toggleTheme);
 });

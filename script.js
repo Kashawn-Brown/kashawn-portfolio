@@ -183,10 +183,18 @@ function initProjectsCarousel() {
     // the viewport's center is still technically over the track's tail
     // end, so also bail out once the Contact section starts coming into
     // view at all.
+    //
+    // Career-Tracker/WS-PASS only skip the forced snap on first arrival
+    // (before `railLocked` has ever engaged this trip) — once you're
+    // genuinely navigating within the carousel (e.g. back up from MicroFlix,
+    // or down from Circle Accountability), snapping onto them works
+    // normally, since `railLocked` is already true by then.
     const trackRect = trackEl ? trackEl.getBoundingClientRect() : null;
     const insideTrack = trackRect && trackRect.top < viewportCenter && trackRect.bottom > viewportCenter;
     const ctaShowing = ctaEl && ctaEl.getBoundingClientRect().top < window.innerHeight * 0.9;
-    if (insideTrack && !ctaShowing && closestDist < window.innerHeight * 0.5) {
+    const isEndSlide = closestIndex === 0 || closestIndex === slides.length - 1;
+    const blockEndSnap = isEndSlide && !railLocked;
+    if (insideTrack && !ctaShowing && !blockEndSnap && closestDist < window.innerHeight * 0.5) {
       scheduleSnap(closestIndex);
     } else {
       clearTimeout(snapTimer);
@@ -269,6 +277,29 @@ function initOverlayToggles() {
   });
 }
 
+function initBackToTop() {
+  const btn = document.getElementById('back-to-top');
+  if (!btn) return;
+  const SHOW_AFTER = 500;
+  let ticking = false;
+
+  function update() {
+    ticking = false;
+    btn.classList.toggle('visible', window.scrollY > SHOW_AFTER);
+  }
+
+  function onScroll() {
+    if (!ticking) {
+      ticking = true;
+      requestAnimationFrame(update);
+    }
+  }
+
+  btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  window.addEventListener('scroll', onScroll, { passive: true });
+  update();
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   initTheme();
   initFadeIns();
@@ -277,6 +308,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initProjectsCarousel();
   initProjectGalleries();
   initOverlayToggles();
+  initBackToTop();
   const btn = document.getElementById('theme-toggle');
   if (btn) btn.addEventListener('click', toggleTheme);
 });

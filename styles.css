@@ -394,6 +394,14 @@ nav .nav-links a.active { color: var(--accent); }
   transition: opacity 0.4s ease, transform 0.4s ease, filter 0.4s ease;
   will-change: opacity, transform, filter;
 }
+/* Native CSS snap has no sense of direction, so it's disabled on the two
+   end slides entirely — arriving at Career-Tracker from About, or leaving
+   WS-PASS into Contact, stays completely free. Snapping onto these two
+   when genuinely navigating within the carousel (e.g. back from MicroFlix,
+   or down from Circle Accountability) is instead handled directionally by
+   the JS correction in script.js, gated on `railLocked`. */
+.project-slide:first-child,
+.project-slide:last-child { scroll-snap-align: none; }
 .project-slide .project-card { width: 100%; }
 
 .project-card {
@@ -780,6 +788,32 @@ nav .nav-links a.active { color: var(--accent); }
   color: var(--ink3);
   letter-spacing: 0.1em;
 }
+
+/* ── Back to top ── */
+.back-to-top {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 60;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--border2);
+  background: var(--nav-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: var(--ink2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(8px);
+  transition: opacity 0.3s ease, transform 0.3s ease, color 0.2s ease, border-color 0.2s ease;
+}
+.back-to-top.visible { opacity: 1; pointer-events: auto; transform: translateY(0); }
+.back-to-top:hover { color: var(--accent); border-color: var(--accent); }
 
 /* ── Animations ── */
 @keyframes fadeUp {

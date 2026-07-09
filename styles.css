@@ -108,6 +108,30 @@ nav .nav-links a {
 nav .nav-links a:hover,
 nav .nav-links a.active { color: var(--accent); }
 
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 32px;
+  height: 32px;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+.nav-toggle span {
+  display: block;
+  width: 100%;
+  height: 1.5px;
+  background: var(--ink2);
+  transition: transform 0.25s ease, opacity 0.2s ease, background 0.2s ease;
+}
+.nav-toggle:hover span { background: var(--accent); }
+.nav-toggle.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.nav-toggle.open span:nth-child(2) { opacity: 0; }
+.nav-toggle.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
 #theme-toggle {
   font-family: 'DM Mono', monospace;
   font-size: 10px;
@@ -189,6 +213,14 @@ nav .nav-links a.active { color: var(--accent); }
   gap: 6px;
   transition: color 0.2s;
 }
+
+.header-meta p {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 6px;
+}
+
 .header-meta a:hover { color: var(--accent); }
 
 /* ── Intro Banner ── */
@@ -854,7 +886,30 @@ nav .nav-links a.active { color: var(--accent); }
 @media (max-width: 640px) {
   .page { padding: 36px 24px 80px; }
   nav { padding: 0 24px; }
-  nav .nav-links { gap: 14px; }
+  .nav-toggle { display: flex; }
+  nav .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    background: var(--nav-bg);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border);
+    padding: 4px 24px 12px;
+  }
+  nav .nav-links.open { display: flex; }
+  nav .nav-links a,
+  nav .nav-links #theme-toggle {
+    width: 100%;
+    padding: 12px 0;
+    margin-left: 0;
+    border-bottom: 1px solid var(--border);
+  }
   .header { grid-template-columns: 1fr; padding-top: 44px; }
   .header-meta { text-align: left; }
   .cta { grid-template-columns: 1fr; padding: 28px 24px; }

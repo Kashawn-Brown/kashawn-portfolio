@@ -49,6 +49,21 @@ function initAnchorFix() {
   });
 }
 
+function initMobileNav() {
+  const toggle = document.getElementById('nav-toggle');
+  const links = document.getElementById('nav-links');
+  if (!toggle || !links) return;
+
+  function setOpen(open) {
+    links.classList.toggle('open', open);
+    toggle.classList.toggle('open', open);
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  }
+
+  toggle.addEventListener('click', () => setOpen(!links.classList.contains('open')));
+  links.querySelectorAll('a').forEach(link => link.addEventListener('click', () => setOpen(false)));
+}
+
 function initActiveNav() {
   const sections = document.querySelectorAll('[data-section]');
   const navLinks = document.querySelectorAll('nav .nav-links a');
@@ -304,6 +319,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initTheme();
   initFadeIns();
   initAnchorFix();
+  initMobileNav();
   initActiveNav();
   initProjectsCarousel();
   initProjectGalleries();

@@ -121,27 +121,33 @@
 
         <!-- Career-Tracker -->
         <div class="project-slide" data-index="0">
-          <div class="project-card">
+          <div class="project-card project-card--overlay">
             <div class="project-visual project-gallery" data-gallery>
               <button class="gallery-arrow gallery-prev" data-gallery-prev aria-label="Previous image">&#8249;</button>
-              <div class="gallery-track">
-                <img class="project-screenshot gallery-image active" src="preview-images/career-tracker/home2.png" alt="Career-Tracker.ca home page" loading="lazy"/>
-                <img class="project-screenshot gallery-image" src="preview-images/career-tracker/table2.png" alt="Career-Tracker.ca applications table" loading="lazy"/>
-                <img class="project-screenshot gallery-image" src="preview-images/career-tracker/drawer2.png" alt="Career-Tracker.ca application drawer overview" loading="lazy"/>
-                <img class="project-screenshot gallery-image" src="preview-images/career-tracker/compatibility2.png" alt="Career-Tracker.ca AI compatibility report" loading="lazy"/>
-                <img class="project-screenshot gallery-image" src="preview-images/career-tracker/resume_advice2.png" alt="Career-Tracker.ca AI resume advice" loading="lazy"/>
-                <img class="project-screenshot gallery-image" src="preview-images/career-tracker/cover_letter2.png" alt="Career-Tracker.ca AI cover letter" loading="lazy"/>
-                <img class="project-screenshot gallery-image" src="preview-images/career-tracker/interview_prep2.png" alt="Career-Tracker.ca AI interview prep" loading="lazy"/>
+              <div class="overlay-frame">
+                <div class="gallery-track">
+                  <img class="project-screenshot gallery-image active" src="preview-images/career-tracker/home2.png" alt="Career-Tracker.ca home page" loading="lazy"/>
+                  <img class="project-screenshot gallery-image" src="preview-images/career-tracker/table2.png" alt="Career-Tracker.ca applications table" loading="lazy"/>
+                  <img class="project-screenshot gallery-image" src="preview-images/career-tracker/drawer2.png" alt="Career-Tracker.ca application drawer overview" loading="lazy"/>
+                  <img class="project-screenshot gallery-image" src="preview-images/career-tracker/compatibility2.png" alt="Career-Tracker.ca AI compatibility report" loading="lazy"/>
+                  <img class="project-screenshot gallery-image" src="preview-images/career-tracker/resume_advice2.png" alt="Career-Tracker.ca AI resume advice" loading="lazy"/>
+                  <img class="project-screenshot gallery-image" src="preview-images/career-tracker/cover_letter2.png" alt="Career-Tracker.ca AI cover letter" loading="lazy"/>
+                  <img class="project-screenshot gallery-image" src="preview-images/career-tracker/interview_prep2.png" alt="Career-Tracker.ca AI interview prep" loading="lazy"/>
+                </div>
               </div>
               <button class="gallery-arrow gallery-next" data-gallery-next aria-label="Next image">&#8250;</button>
             </div>
-            <div class="project-body">
+            <div class="overlay-links">
+              <a class="icon-link" href="https://github.com/Kashawn-Brown/Career-Tracker" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository"><svg viewBox="0 0 16 16" width="15" height="15" fill="currentColor"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg></a>
+              <a class="icon-link" href="https://career-tracker.ca/" target="_blank" rel="noopener noreferrer" aria-label="Live Site"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+            </div>
+            <button class="overlay-toggle" data-overlay-toggle aria-label="Hide project details" aria-pressed="false">
+              <svg class="icon-eye" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+              <svg class="icon-eye-off" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.94 10.94 0 0 1 12 20c-7 0-11-8-11-8a21.8 21.8 0 0 1 5.06-6.06M9.9 4.24A10.94 10.94 0 0 1 12 4c7 0 11 8 11 8a21.77 21.77 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
+            </button>
+            <div class="project-overlay-panel">
               <div class="project-type-row">
                 <div class="project-type">SaaS Web App &middot; Live</div>
-                <div class="project-links">
-                  <a class="icon-link" href="https://github.com/Kashawn-Brown/Career-Tracker" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository"><svg viewBox="0 0 16 16" width="15" height="15" fill="currentColor"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg></a>
-                  <a class="icon-link" href="https://career-tracker.ca/" target="_blank" rel="noopener noreferrer" aria-label="Live Site"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
-                </div>
               </div>
               <div class="project-header">
                 <div class="project-title">Career-Tracker</div>
@@ -171,16 +177,22 @@
 
         <!-- MicroFlix -->
         <div class="project-slide" data-index="1">
-          <div class="project-card">
+          <div class="project-card project-card--overlay">
             <div class="project-visual">
-              <img class="project-screenshot" src="preview-images/MicroFlixPreview.png" alt="MicroFlix preview" loading="lazy"/>
+              <div class="overlay-frame">
+                <img class="project-screenshot" src="preview-images/MicroFlixPreview.png" alt="MicroFlix preview" loading="lazy"/>
+              </div>
             </div>
-            <div class="project-body">
+            <div class="overlay-links">
+              <a class="icon-link" href="https://github.com/Kashawn-Brown/MicroFlix" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository"><svg viewBox="0 0 16 16" width="15" height="15" fill="currentColor"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg></a>
+            </div>
+            <button class="overlay-toggle" data-overlay-toggle aria-label="Hide project details" aria-pressed="false">
+              <svg class="icon-eye" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+              <svg class="icon-eye-off" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.94 10.94 0 0 1 12 20c-7 0-11-8-11-8a21.8 21.8 0 0 1 5.06-6.06M9.9 4.24A10.94 10.94 0 0 1 12 4c7 0 11 8 11 8a21.77 21.77 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
+            </button>
+            <div class="project-overlay-panel">
               <div class="project-type-row">
                 <div class="project-type">Microservices Platform &middot; Project</div>
-                <div class="project-links">
-                  <a class="icon-link" href="https://github.com/Kashawn-Brown/MicroFlix" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository"><svg viewBox="0 0 16 16" width="15" height="15" fill="currentColor"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg></a>
-                </div>
               </div>
               <div class="project-header">
                 <div class="project-title">MicroFlix</div>
@@ -209,16 +221,18 @@
 
         <!-- AI Inference Platform -->
         <div class="project-slide" data-index="2">
-          <div class="project-card">
-            <div class="project-visual project-visual-placeholder">
-              <span class="placeholder-label">Image coming soon</span>
+          <div class="project-card project-card--overlay">
+            <div class="project-visual">
+              <div class="overlay-frame project-visual-placeholder">
+                <span class="placeholder-label">Image coming soon</span>
+              </div>
             </div>
-            <div class="project-body">
+            <div class="overlay-links">
+              <a class="icon-link" href="https://github.com/Kashawn-Brown/ai-inference-platform" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository"><svg viewBox="0 0 16 16" width="15" height="15" fill="currentColor"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg></a>
+            </div>
+            <div class="project-overlay-panel">
               <div class="project-type-row">
                 <div class="project-type">ML Infra &middot; Live (Frontend Pending)</div>
-                <div class="project-links">
-                  <a class="icon-link" href="https://github.com/Kashawn-Brown/ai-inference-platform" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository"><svg viewBox="0 0 16 16" width="15" height="15" fill="currentColor"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg></a>
-                </div>
               </div>
               <div class="project-header">
                 <div class="project-title">AI Inference Platform</div>
@@ -239,7 +253,6 @@
               <ul class="project-bullets">
                 <li>Handles two different workloads at once — instant responses and large background jobs — without one slowing down the other</li>
                 <li>Full monitoring dashboards and load testing built in from the start, not added after the fact</li>
-                <!-- <li>Supports multiple models and multiple versions of the same model, all running at once</li> -->
                 <li>A failed job doesn't take down the batch — each one is isolated so the rest keep processing</li>
               </ul>
             </div>
@@ -248,26 +261,32 @@
 
         <!-- Shot O'Clock -->
         <div class="project-slide" data-index="3">
-          <div class="project-card">
+          <div class="project-card project-card--overlay project-card--portrait">
             <div class="project-visual project-gallery" data-gallery>
               <button class="gallery-arrow gallery-prev" data-gallery-prev aria-label="Previous image">&#8249;</button>
-              <div class="gallery-track">
-                <img class="project-screenshot gallery-image active" src="preview-images/shot-o-clock/home.png" alt="Shot O'Clock home screen" loading="lazy"/>
-                <img class="project-screenshot gallery-image" src="preview-images/shot-o-clock/create_party.png" alt="Shot O'Clock create party" loading="lazy"/>
-                <img class="project-screenshot gallery-image" src="preview-images/shot-o-clock/lobby.png" alt="Shot O'Clock party lobby" loading="lazy"/>
-                <img class="project-screenshot gallery-image" src="preview-images/shot-o-clock/timer.png" alt="Shot O'Clock countdown timer" loading="lazy"/>
-                <img class="project-screenshot gallery-image" src="preview-images/shot-o-clock/shot_o_clock.png" alt="Shot O'Clock moment" loading="lazy"/>
-                <img class="project-screenshot gallery-image" src="preview-images/shot-o-clock/round_results.png" alt="Shot O'Clock round results" loading="lazy"/>
-                <img class="project-screenshot gallery-image" src="preview-images/shot-o-clock/summary.png" alt="Shot O'Clock round summary" loading="lazy"/>
+              <div class="overlay-frame">
+                <div class="gallery-track">
+                  <img class="project-screenshot gallery-image active" src="preview-images/shot-o-clock/home.png" alt="Shot O'Clock home screen" loading="lazy"/>
+                  <img class="project-screenshot gallery-image" src="preview-images/shot-o-clock/create_party.png" alt="Shot O'Clock create party" loading="lazy"/>
+                  <img class="project-screenshot gallery-image" src="preview-images/shot-o-clock/lobby.png" alt="Shot O'Clock party lobby" loading="lazy"/>
+                  <img class="project-screenshot gallery-image" src="preview-images/shot-o-clock/timer.png" alt="Shot O'Clock countdown timer" loading="lazy"/>
+                  <img class="project-screenshot gallery-image" src="preview-images/shot-o-clock/shot_o_clock.png" alt="Shot O'Clock moment" loading="lazy"/>
+                  <img class="project-screenshot gallery-image" src="preview-images/shot-o-clock/round_results.png" alt="Shot O'Clock round results" loading="lazy"/>
+                  <img class="project-screenshot gallery-image" src="preview-images/shot-o-clock/summary.png" alt="Shot O'Clock round summary" loading="lazy"/>
+                </div>
               </div>
               <button class="gallery-arrow gallery-next" data-gallery-next aria-label="Next image">&#8250;</button>
             </div>
-            <div class="project-body">
+            <div class="overlay-links">
+              <a class="icon-link" href="https://github.com/Kashawn-Brown/shot-o-clock" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository"><svg viewBox="0 0 16 16" width="15" height="15" fill="currentColor"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg></a>
+            </div>
+            <button class="overlay-toggle" data-overlay-toggle aria-label="Hide project details" aria-pressed="false">
+              <svg class="icon-eye" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+              <svg class="icon-eye-off" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.94 10.94 0 0 1 12 20c-7 0-11-8-11-8a21.8 21.8 0 0 1 5.06-6.06M9.9 4.24A10.94 10.94 0 0 1 12 4c7 0 11 8 11 8a21.77 21.77 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
+            </button>
+            <div class="project-overlay-panel">
               <div class="project-type-row">
                 <div class="project-type">Mobile App &middot; Release Pending</div>
-                <div class="project-links">
-                  <a class="icon-link" href="https://github.com/Kashawn-Brown/shot-o-clock" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository"><svg viewBox="0 0 16 16" width="15" height="15" fill="currentColor"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg></a>
-                </div>
               </div>
               <div class="project-header">
                 <div class="project-title">Shot O&rsquo;Clock</div>
@@ -295,23 +314,29 @@
 
         <!-- Circle Accountability -->
         <div class="project-slide" data-index="4">
-          <div class="project-card">
+          <div class="project-card project-card--overlay project-card--portrait">
             <div class="project-visual project-gallery" data-gallery>
               <button class="gallery-arrow gallery-prev" data-gallery-prev aria-label="Previous image">&#8249;</button>
-              <div class="gallery-track">
-                <img class="project-screenshot gallery-image active" src="preview-images/circle-accountability/home_circles.png" alt="Circle Accountability — Your Circles list" loading="lazy"/>
-                <img class="project-screenshot gallery-image" src="preview-images/circle-accountability/circle_detail.png" alt="Circle Accountability — circle detail with progress ring" loading="lazy"/>
-                <img class="project-screenshot gallery-image" src="preview-images/circle-accountability/member_detail.png" alt="Circle Accountability — member stats and streak" loading="lazy"/>
-                <img class="project-screenshot gallery-image" src="preview-images/circle-accountability/profile.png" alt="Circle Accountability — profile" loading="lazy"/>
+              <div class="overlay-frame">
+                <div class="gallery-track">
+                  <img class="project-screenshot gallery-image active" src="preview-images/circle-accountability/home_circles.png" alt="Circle Accountability — Your Circles list" loading="lazy"/>
+                  <img class="project-screenshot gallery-image" src="preview-images/circle-accountability/circle_detail.png" alt="Circle Accountability — circle detail with progress ring" loading="lazy"/>
+                  <img class="project-screenshot gallery-image" src="preview-images/circle-accountability/member_detail.png" alt="Circle Accountability — member stats and streak" loading="lazy"/>
+                  <img class="project-screenshot gallery-image" src="preview-images/circle-accountability/profile.png" alt="Circle Accountability — profile" loading="lazy"/>
+                </div>
               </div>
               <button class="gallery-arrow gallery-next" data-gallery-next aria-label="Next image">&#8250;</button>
             </div>
-            <div class="project-body">
+            <div class="overlay-links">
+              <a class="icon-link" href="https://github.com/Kashawn-Brown/CircleAccountability" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository"><svg viewBox="0 0 16 16" width="15" height="15" fill="currentColor"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg></a>
+            </div>
+            <button class="overlay-toggle" data-overlay-toggle aria-label="Hide project details" aria-pressed="false">
+              <svg class="icon-eye" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+              <svg class="icon-eye-off" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.94 10.94 0 0 1 12 20c-7 0-11-8-11-8a21.8 21.8 0 0 1 5.06-6.06M9.9 4.24A10.94 10.94 0 0 1 12 4c7 0 11 8 11 8a21.77 21.77 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
+            </button>
+            <div class="project-overlay-panel">
               <div class="project-type-row">
                 <div class="project-type">Cross-Platform App &middot; In Development</div>
-                <div class="project-links">
-                  <a class="icon-link" href="https://github.com/Kashawn-Brown/CircleAccountability" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository"><svg viewBox="0 0 16 16" width="15" height="15" fill="currentColor"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg></a>
-                </div>
               </div>
               <div class="project-header">
                 <div class="project-title">Circle Accountability</div>
@@ -328,7 +353,6 @@
                 <span class="project-tag">PostgreSQL</span>
                 <span class="project-tag">Clerk</span>
                 <span class="project-tag">Turborepo</span>
-                <!-- <span class="project-tag">GCP</span> -->
               </div>
               <ul class="project-bullets">
                 <li>Join or create multiple circles at once — a workout group, a study group, whatever you're building consistency around</li>
@@ -342,17 +366,23 @@
 
         <!-- WS-PASS -->
         <div class="project-slide" data-index="5">
-          <div class="project-card">
+          <div class="project-card project-card--overlay">
             <div class="project-visual">
-              <img class="project-screenshot" src="preview-images/WS-PASSPreview.png" alt="WS-PASS preview" loading="lazy"/>
+              <div class="overlay-frame">
+                <img class="project-screenshot" src="preview-images/WS-PASSPreview.png" alt="WS-PASS preview" loading="lazy"/>
+              </div>
             </div>
-            <div class="project-body">
+            <div class="overlay-links">
+              <a class="icon-link" href="https://github.com/MatteoTanziCodes/WSPass" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository"><svg viewBox="0 0 16 16" width="15" height="15" fill="currentColor"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg></a>
+              <a class="icon-link" href="https://ws-pass-website.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Live Site"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+            </div>
+            <button class="overlay-toggle" data-overlay-toggle aria-label="Hide project details" aria-pressed="false">
+              <svg class="icon-eye" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+              <svg class="icon-eye-off" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.94 10.94 0 0 1 12 20c-7 0-11-8-11-8a21.8 21.8 0 0 1 5.06-6.06M9.9 4.24A10.94 10.94 0 0 1 12 4c7 0 11 8 11 8a21.77 21.77 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
+            </button>
+            <div class="project-overlay-panel">
               <div class="project-type-row">
                 <div class="project-type">Agentic DevOps System &middot; Project (Concept Build)</div>
-                <div class="project-links">
-                  <a class="icon-link" href="https://github.com/MatteoTanziCodes/WSPass" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository"><svg viewBox="0 0 16 16" width="15" height="15" fill="currentColor"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg></a>
-                  <a class="icon-link" href="https://ws-pass-website.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Live Site"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
-                </div>
               </div>
               <div class="project-header">
                 <div class="project-title">WS - PASS</div>

@@ -76,15 +76,37 @@ function initProjectsCarousel() {
   const dots = Array.from(document.querySelectorAll('.dot'));
   const mobileLabel = document.querySelector('[data-mobile-label]');
   const railWrap = document.querySelector('[data-rail-wrap]');
+  const trackEl = document.querySelector('.projects-track');
+  const ctaEl = document.getElementById('contact');
   const names = railItems.map(item => item.textContent.trim());
 
   let activeIndex = -1;
   let ticking = false;
   let railLocked = false;
+  let snapTimer = null;
+
+  // CSS scroll-snap with `proximity` only pulls toward a slide — it won't
+  // force a rest position, so momentum can run out with two slides half
+  // in frame. Once scrolling has been idle for a moment, nudge to the
+  // nearest slide's center if it isn't already there.
+  function scheduleSnap(index) {
+    clearTimeout(snapTimer);
+    snapTimer = setTimeout(() => {
+      const slide = slides[index];
+      const rect = slide.getBoundingClientRect();
+      const target = rect.top + rect.height / 2;
+      const viewportCenter = window.innerHeight / 2;
+      if (Math.abs(target - viewportCenter) > 12) {
+        slide.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    }, 140);
+  }
 
   function resetGallery(slide) {
     const gallery = slide.querySelector('.project-gallery');
     if (gallery && gallery.resetGallery) gallery.resetGallery();
+    const overlayCard = slide.querySelector('.project-card--overlay');
+    if (overlayCard && overlayCard.resetPanelVisibility) overlayCard.resetPanelVisibility();
   }
 
   function setActive(index) {
@@ -130,22 +152,44 @@ function initProjectsCarousel() {
 
       // Track the first card's own center while it's still scrolling into
       // view; once it's fully inside the viewport, latch to dead-center and
-      // stay there through every later project (only unlatching if you
-      // scroll back above the first project). Computed by hand since
-      // position:fixed needs a plain viewport-relative `top` and doesn't
-      // otherwise track scroll.
+      // stay there through every later project. Unlatches (and resumes
+      // tracking the card's real position) only at the two ends: scrolling
+      // back above the first project, or the last project exiting past
+      // center on the way out — so it travels in with Career-Tracker and
+      // back out with WS-PASS instead of just fading in place at the end.
+      // Computed by hand since position:fixed needs a plain
+      // viewport-relative `top` and doesn't otherwise track scroll.
       const activeCard = slides[closestIndex].querySelector('.project-card');
       if (activeCard) {
         const cardRect = activeCard.getBoundingClientRect();
         const lockY = window.innerHeight / 2;
         const fullyInFrame = cardRect.top >= 0 && cardRect.bottom <= window.innerHeight;
+        const lastIndex = slides.length - 1;
 
         if (fullyInFrame) railLocked = true;
         else if (closestIndex === 0 && cardRect.top > lockY) railLocked = false;
+        else if (closestIndex === lastIndex && cardRect.top < 0) railLocked = false;
 
         const targetY = railLocked ? lockY : cardRect.top + cardRect.height / 2;
         railWrap.style.top = `${targetY}px`;
       }
+    }
+
+    // Only correct-snap when the viewport's center is actually inside the
+    // track's own bounds — otherwise reading the About section or the
+    // footer gets yanked into a project the instant scrolling pauses,
+    // since some slide is always "closest" even from far away. The CTA
+    // section is short enough that its top can already be on screen while
+    // the viewport's center is still technically over the track's tail
+    // end, so also bail out once the Contact section starts coming into
+    // view at all.
+    const trackRect = trackEl ? trackEl.getBoundingClientRect() : null;
+    const insideTrack = trackRect && trackRect.top < viewportCenter && trackRect.bottom > viewportCenter;
+    const ctaShowing = ctaEl && ctaEl.getBoundingClientRect().top < window.innerHeight * 0.9;
+    if (insideTrack && !ctaShowing && closestDist < window.innerHeight * 0.5) {
+      scheduleSnap(closestIndex);
+    } else {
+      clearTimeout(snapTimer);
     }
   }
 
@@ -205,6 +249,26 @@ function initProjectGalleries() {
   });
 }
 
+function initOverlayToggles() {
+  document.querySelectorAll('.project-card--overlay').forEach(card => {
+    const btn = card.querySelector('[data-overlay-toggle]');
+    if (!btn) return;
+
+    function setHidden(hidden) {
+      card.classList.toggle('panel-hidden', hidden);
+      btn.setAttribute('aria-pressed', hidden ? 'true' : 'false');
+      btn.setAttribute('aria-label', hidden ? 'Show project details' : 'Hide project details');
+    }
+
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      setHidden(!card.classList.contains('panel-hidden'));
+    });
+
+    card.resetPanelVisibility = () => setHidden(false);
+  });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   initTheme();
   initFadeIns();
@@ -212,6 +276,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initActiveNav();
   initProjectsCarousel();
   initProjectGalleries();
+  initOverlayToggles();
   const btn = document.getElementById('theme-toggle');
   if (btn) btn.addEventListener('click', toggleTheme);
 });

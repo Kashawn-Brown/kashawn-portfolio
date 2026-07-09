@@ -75,18 +75,27 @@ function initProjectsCarousel() {
   const railItems = Array.from(document.querySelectorAll('.rail-item'));
   const dots = Array.from(document.querySelectorAll('.dot'));
   const mobileLabel = document.querySelector('[data-mobile-label]');
+  const railWrap = document.querySelector('[data-rail-wrap]');
   const names = railItems.map(item => item.textContent.trim());
 
   let activeIndex = -1;
   let ticking = false;
+  let railLocked = false;
+
+  function resetGallery(slide) {
+    const gallery = slide.querySelector('.project-gallery');
+    if (gallery && gallery.resetGallery) gallery.resetGallery();
+  }
 
   function setActive(index) {
     if (index === activeIndex) return;
+    const previous = activeIndex;
     activeIndex = index;
     slides.forEach((s, i) => s.classList.toggle('is-active', i === index));
     railItems.forEach((r, i) => r.classList.toggle('active', i === index));
     dots.forEach((d, i) => d.classList.toggle('active', i === index));
     if (mobileLabel && names[index]) mobileLabel.textContent = names[index];
+    if (previous >= 0 && previous !== index) resetGallery(slides[previous]);
   }
 
   function update() {
@@ -113,6 +122,31 @@ function initProjectsCarousel() {
     });
 
     setActive(closestIndex);
+
+    if (railWrap) {
+      const railOpacity = Math.max(0, 1 - closestDist / (window.innerHeight * 0.6));
+      railWrap.style.opacity = railOpacity.toFixed(3);
+      railWrap.style.pointerEvents = railOpacity > 0.4 ? 'auto' : 'none';
+
+      // Track the first card's own center while it's still scrolling into
+      // view; once it's fully inside the viewport, latch to dead-center and
+      // stay there through every later project (only unlatching if you
+      // scroll back above the first project). Computed by hand since
+      // position:fixed needs a plain viewport-relative `top` and doesn't
+      // otherwise track scroll.
+      const activeCard = slides[closestIndex].querySelector('.project-card');
+      if (activeCard) {
+        const cardRect = activeCard.getBoundingClientRect();
+        const lockY = window.innerHeight / 2;
+        const fullyInFrame = cardRect.top >= 0 && cardRect.bottom <= window.innerHeight;
+
+        if (fullyInFrame) railLocked = true;
+        else if (closestIndex === 0 && cardRect.top > lockY) railLocked = false;
+
+        const targetY = railLocked ? lockY : cardRect.top + cardRect.height / 2;
+        railWrap.style.top = `${targetY}px`;
+      }
+    }
   }
 
   function onScroll() {
@@ -145,17 +179,29 @@ function initProjectGalleries() {
     if (images.length <= 1) return;
 
     let index = Math.max(images.findIndex(img => img.classList.contains('active')), 0);
-
-    function show(newIndex) {
-      images[index].classList.remove('active');
-      index = (newIndex + images.length) % images.length;
-      images[index].classList.add('active');
-    }
-
     const prevBtn = gallery.querySelector('[data-gallery-prev]');
     const nextBtn = gallery.querySelector('[data-gallery-next]');
-    if (prevBtn) prevBtn.addEventListener('click', (e) => { e.stopPropagation(); show(index - 1); });
-    if (nextBtn) nextBtn.addEventListener('click', (e) => { e.stopPropagation(); show(index + 1); });
+
+    function render() {
+      images.forEach((img, i) => img.classList.toggle('active', i === index));
+    }
+
+    if (prevBtn) prevBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      index = (index - 1 + images.length) % images.length;
+      render();
+    });
+    if (nextBtn) nextBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      index = (index + 1) % images.length;
+      render();
+    });
+
+    gallery.resetGallery = () => {
+      if (index !== 0) { index = 0; render(); }
+    };
+
+    render();
   });
 }
 

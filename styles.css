@@ -183,7 +183,10 @@ nav .nav-links a.active { color: var(--accent); }
 .header-meta a {
   color: var(--accent2);
   text-decoration: none;
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 6px;
   transition: color 0.2s;
 }
 .header-meta a:hover { color: var(--accent); }
@@ -246,6 +249,18 @@ nav .nav-links a.active { color: var(--accent); }
 }
 .section-rule { flex: 1; height: 1px; background: var(--border); }
 
+/* Keep the "Projects" separator visible while scrolling through the carousel */
+#projects .section-header {
+  position: sticky;
+  top: 52px;
+  z-index: 25;
+  background: var(--nav-bg);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  padding: 16px 0;
+  margin-bottom: 0;
+}
+
 .section-prose {
   color: var(--ink2);
   font-size: 15.5px;
@@ -291,7 +306,7 @@ nav .nav-links a.active { color: var(--accent); }
 .projects-mobile-nav {
   display: none;
   position: sticky;
-  top: 52px;
+  top: 118px;
   z-index: 20;
   background: var(--nav-bg);
   backdrop-filter: blur(14px);
@@ -328,19 +343,23 @@ nav .nav-links a.active { color: var(--accent); }
   transform: scale(1.25);
 }
 
-/* Carousel shell: sticky rail + scrolling track */
-.projects-carousel {
-  display: grid;
-  grid-template-columns: 220px 1fr;
-  gap: 40px;
-  align-items: start;
-}
+/* Carousel shell: fills the available column by default (biggest
+   possible card). Once the viewport is wide enough (see media query
+   below) the track narrows and centers, opening a dedicated buffer to
+   its left for the rail to float in — outside the card, never
+   competing with it for space. Below that width the mobile dots+label
+   nav takes over instead. */
+.projects-carousel { margin: 0 auto; }
 
 .projects-rail {
-  position: sticky;
+  position: fixed;
   top: 50%;
+  left: calc((100vw - 1150px) / 2 - 270px);
   transform: translateY(-50%);
-  align-self: start;
+  z-index: 15;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s ease;
 }
 .rail-list { list-style: none; display: grid; gap: 4px; }
 .rail-item {
@@ -368,7 +387,7 @@ nav .nav-links a.active { color: var(--accent); }
 .projects-track { display: grid; gap: 0; }
 
 .project-slide {
-  min-height: 84vh;
+  min-height: 90vh;
   display: flex;
   align-items: center;
   scroll-snap-align: center;
@@ -384,7 +403,7 @@ nav .nav-links a.active { color: var(--accent); }
   background: var(--surface);
   overflow: hidden;
   transition: border-color 0.25s, box-shadow 0.25s, background 0.3s;
-  min-height: 320px;
+  min-height: 460px;
 }
 .project-slide.is-active .project-card {
   border-color: var(--accent2);
@@ -491,64 +510,47 @@ nav .nav-links a.active { color: var(--accent); }
 
 /* Info panel */
 .project-body {
-  padding: 36px 40px;
+  padding: 44px 48px;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
+.project-type-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
 .project-type {
   font-family: 'DM Mono', monospace;
   font-size: 10px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--accent);
-  margin-bottom: 10px;
 }
 
-.project-header {
+.project-links { display: flex; gap: 8px; flex-shrink: 0; }
+.icon-link {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 12px;
-  margin-bottom: 8px;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border: 1px solid var(--border2);
+  color: var(--ink2);
+  transition: color 0.2s, border-color 0.2s, background 0.2s;
 }
+.icon-link:hover { color: var(--accent2); border-color: var(--accent2); }
+
+.project-header { margin-bottom: 10px; }
 .project-title {
   font-family: 'DM Serif Display', serif;
-  font-size: 26px;
+  font-size: 29px;
   letter-spacing: -0.02em;
   color: var(--ink);
   line-height: 1.1;
-}
-.project-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  flex-shrink: 0;
-  margin-top: 6px;
-}
-.project-link {
-  font-family: 'DM Mono', monospace;
-  font-size: 10px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--accent2);
-  text-decoration: none;
-  border: 1px solid var(--accent2);
-  padding: 5px 10px;
-  white-space: nowrap;
-  transition: background 0.2s, color 0.2s;
-}
-.project-link:hover { background: var(--accent2); color: #fff; }
-.project-no-link {
-  font-family: 'DM Mono', monospace;
-  font-size: 10px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--border2);
-  border: 1px solid var(--border);
-  padding: 5px 10px;
-  white-space: nowrap;
 }
 
 .project-one-liner {
@@ -628,6 +630,9 @@ nav .nav-links a.active { color: var(--accent); }
   color: var(--accent2);
   text-decoration: none;
   white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 6px;
   transition: color 0.2s;
 }
 .cta-contact a:hover { color: var(--accent); }
@@ -658,6 +663,18 @@ nav .nav-links a.active { color: var(--accent); }
 .fade-in.visible { opacity: 1; transform: translateY(0); }
 
 /* ── Responsive ── */
+
+/* Below this, there isn't a wide enough gutter for the rail to sit
+   outside the card without overlapping it — fall back to the mobile
+   dots+label nav instead. Above it, the rail floats in that gutter. */
+@media (max-width: 1699px) {
+  .projects-rail { display: none; }
+  .projects-mobile-nav { display: block; }
+}
+@media (min-width: 1700px) {
+  .projects-carousel { max-width: 1150px; }
+}
+
 @media (max-width: 960px) {
   .project-card,
   .project-slide:nth-child(even) .project-card {
@@ -667,11 +684,6 @@ nav .nav-links a.active { color: var(--accent); }
   .project-visual { height: 220px; border-right: none; border-left: none; border-bottom: 1px solid var(--border); }
   .project-slide:nth-child(even) .project-card .project-visual { border-left: none; border-bottom: 1px solid var(--border); }
   .about-grid { grid-template-columns: repeat(2, 1fr); }
-
-  /* Carousel: drop the sticky rail, surface the mobile dots/label instead */
-  .projects-carousel { grid-template-columns: 1fr; gap: 0; }
-  .projects-rail { display: none; }
-  .projects-mobile-nav { display: block; }
   .project-slide { min-height: auto; padding: 34px 0; }
 }
 @media (max-width: 640px) {

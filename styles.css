@@ -5,6 +5,12 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap');
 
 /* ── Dark Theme (default) ── */
+:root {
+  /* Always the dark value, in both themes — used for the overlay card's
+     frame background so it stays a consistent dark "mat" regardless of
+     the active site theme. */
+  --overlay-frame-bg: #0d0d0f;
+}
 :root,
 [data-theme="dark"] {
   --bg:          #0d0d0f;
@@ -490,18 +496,6 @@ nav .nav-links a.active { color: var(--accent); }
   transition: transform 0.5s ease;
 }
 
-.project-visual-placeholder {
-  background: var(--bg);
-  border: 1px dashed var(--border2);
-}
-.placeholder-label {
-  font-family: 'DM Mono', monospace;
-  font-size: 11px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--ink3);
-}
-
 /* Per-project image gallery (manual arrows, no autoplay, no dots) */
 .project-gallery { padding: 12px; }
 .gallery-track {
@@ -631,7 +625,7 @@ nav .nav-links a.active { color: var(--accent); }
   display: block;
   position: relative;
   min-height: 640px;
-  background: var(--bg);
+  background: var(--overlay-frame-bg);
 }
 .project-card--overlay .project-visual {
   position: absolute;
@@ -649,7 +643,11 @@ nav .nav-links a.active { color: var(--accent); }
   transition: inset 0.4s ease;
 }
 .project-card--overlay:hover .overlay-frame { inset: 0; }
-.project-card--overlay .project-screenshot { border: none; transition: filter 0.4s ease; }
+.project-card--overlay .project-screenshot {
+  border: none;
+  background: var(--overlay-frame-bg);
+  transition: filter 0.4s ease;
+}
 .project-card--overlay:hover .project-screenshot { transform: none; filter: brightness(1.08) saturate(1.05); }
 
 /* Thin full-height click strips instead of floating round buttons — sized

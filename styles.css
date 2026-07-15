@@ -882,6 +882,65 @@ nav .nav-links a.active { color: var(--accent); }
   .project-slide { min-height: auto; padding: 34px 0; }
 }
 @media (max-width: 640px) {
+  /* Native scroll-snap fights touch-scroll momentum, and the JS scale/blur/
+     rail effect is desktop-only below this width (see mobileQuery in
+     script.js) — let the project list scroll like a plain page. */
+  html { scroll-snap-type: none; }
+  .project-slide { scroll-snap-align: none; min-height: auto; padding: 20px 0; }
+
+  /* Stack image-then-text instead of the desktop overlay/scrim treatment:
+     letterboxed screenshots + a text scrim both get crushed under 40px of
+     side padding on a phone-width viewport, so drop the absolute overlay
+     positioning in favor of normal flow. */
+  .project-card--overlay,
+  .project-card--overlay.project-card--portrait {
+    min-height: auto;
+  }
+  /* Height is driven by aspect-ratio (matched to the actual screenshots)
+     instead of a flat px value, so landscape screenshots fill the box at
+     their real proportions instead of getting letterboxed to a sliver. */
+  .project-card--overlay .project-visual {
+    position: relative;
+    /* A leftover, unscoped ".project-visual { height: 220px }" rule at the
+       960px breakpoint above still matches these elements too and always
+       wins for the height property specifically (aspect-ratio only fills
+       in a dimension left auto) — reset it explicitly so aspect-ratio
+       actually governs the height here. */
+    height: auto;
+    aspect-ratio: 16 / 9;
+  }
+  /* Matching aspect-ratio to a true phone screenshot (~9:19) would make
+     the box ~1000px tall at phone card widths — full width isn't workable
+     for something this narrow, so cap the height instead and accept some
+     letterboxing on the sides. */
+  .project-card--overlay.project-card--portrait .project-visual {
+    aspect-ratio: auto;
+    height: 400px;
+  }
+  .project-card--overlay .overlay-frame,
+  .project-card--overlay:hover .overlay-frame {
+    inset: 0;
+  }
+
+  /* Image and text no longer share the same space on mobile, so there's
+     nothing left for this button to reveal. */
+  .overlay-toggle { display: none; }
+  .project-overlay-panel {
+    position: relative;
+    padding: 20px 20px 24px;
+    background: var(--surface);
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+  .project-overlay-panel .project-title { font-size: 24px; }
+  .project-overlay-panel .project-one-liner { font-size: 14px; }
+
+  /* Sticky nav + sticky section header + sticky mobile dots bar together
+     pinned ~170px of permanent chrome on a phone viewport. Un-stick the
+     section header here and pull the dots bar up under just the nav. */
+  #projects .section-header { position: static; }
+  .projects-mobile-nav { top: 52px; padding: 10px 16px; }
+
   .page { padding: 36px 24px 80px; }
   nav { padding: 0 24px; }
   .nav-toggle { display: flex; }
@@ -917,4 +976,32 @@ nav .nav-links a.active { color: var(--accent); }
   .gallery-arrow { width: 30px; height: 30px; font-size: 16px; }
   .gallery-prev { left: 10px; }
   .gallery-next { right: 10px; }
+  .project-card--overlay .gallery-arrow { width: 44px; max-width: 15%; font-size: 22px; }
+
+  /* Enlarge the dot's hit area for touch without changing its visible
+     size — the mark moves to ::before inside a bigger transparent button. */
+  .dot {
+    width: 30px;
+    height: 30px;
+    border: none;
+    background: transparent;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .dot::before {
+    content: '';
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    border: 1px solid var(--border2);
+    background: transparent;
+    transition: background 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+  }
+  .dot.active::before {
+    background: var(--accent);
+    border-color: var(--accent);
+    transform: scale(1.25);
+  }
 }

@@ -95,6 +95,13 @@ function initProjectsCarousel() {
   const ctaEl = document.getElementById('contact');
   const names = railItems.map(item => item.textContent.trim());
 
+  // Below this width the scroll-driven scale/blur/rail effect and its
+  // forced scroll-snap correction are skipped entirely in favor of a plain
+  // stacked list — the effect is designed around desktop scroll distances
+  // and fights touch-scroll momentum on phones. See enableMobileMode below.
+  const mobileQuery = window.matchMedia('(max-width: 640px)');
+  let mobileObserver = null;
+
   let activeIndex = -1;
   let ticking = false;
   let railLocked = false;
@@ -228,6 +235,49 @@ function initProjectsCarousel() {
     if (target) target.scrollIntoView({ behavior: 'smooth', block: 'center' });
   }
 
+  // Wipe any inline styles the desktop update() loop left behind so a
+  // resize/rotation into mobile range doesn't leave a slide stuck
+  // half-blurred or scaled down.
+  function clearSlideStyles() {
+    slides.forEach(s => {
+      s.style.opacity = '';
+      s.style.transform = '';
+      s.style.filter = '';
+    });
+    if (railWrap) {
+      railWrap.style.opacity = '';
+      railWrap.style.pointerEvents = '';
+      railWrap.style.top = '';
+    }
+    clearTimeout(snapTimer);
+  }
+
+  function enableMobileMode() {
+    window.removeEventListener('scroll', onScroll);
+    clearSlideStyles();
+    if (!mobileObserver) {
+      mobileObserver = new IntersectionObserver(
+        (entries) => entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const index = slides.indexOf(entry.target);
+            if (index !== -1) setActive(index);
+          }
+        }),
+        { threshold: 0.5 }
+      );
+      slides.forEach(s => mobileObserver.observe(s));
+    }
+  }
+
+  function enableDesktopMode() {
+    if (mobileObserver) {
+      mobileObserver.disconnect();
+      mobileObserver = null;
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    update();
+  }
+
   [...railItems, ...dots].forEach(el => {
     el.addEventListener('click', () => {
       const index = parseInt(el.dataset.target, 10);
@@ -235,9 +285,13 @@ function initProjectsCarousel() {
     });
   });
 
-  window.addEventListener('scroll', onScroll, { passive: true });
-  window.addEventListener('resize', update);
-  update();
+  if (mobileQuery.matches) enableMobileMode(); else enableDesktopMode();
+  mobileQuery.addEventListener('change', (e) => {
+    e.matches ? enableMobileMode() : enableDesktopMode();
+  });
+  window.addEventListener('resize', () => {
+    if (!mobileQuery.matches) update();
+  });
 }
 
 function initProjectGalleries() {

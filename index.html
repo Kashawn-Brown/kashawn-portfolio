@@ -44,9 +44,10 @@
     <li><button class="rail-item active" data-target="0">Career-Tracker</button></li>
     <li><button class="rail-item" data-target="1">MicroFlix</button></li>
     <li><button class="rail-item" data-target="2">AI Inference Platform</button></li>
-    <li><button class="rail-item" data-target="3">Shot O&rsquo;Clock</button></li>
-    <li><button class="rail-item" data-target="4">Circle Accountability</button></li>
-    <li><button class="rail-item" data-target="5">WS - PASS</button></li>
+    <li><button class="rail-item" data-target="3">TechDrill</button></li>
+    <li><button class="rail-item" data-target="4">Shot O&rsquo;Clock</button></li>
+    <li><button class="rail-item" data-target="5">Circle Accountability</button></li>
+    <li><button class="rail-item" data-target="6">WS - PASS</button></li>
   </ul>
 </aside>
 
@@ -293,8 +294,59 @@
           </div>
         </div>
 
-        <!-- Shot O'Clock -->
+                <!-- TechDrill -->
         <div class="project-slide" data-index="3">
+          <div class="project-card project-card--overlay">
+            <div class="project-visual project-gallery" data-gallery>
+              <button class="gallery-arrow gallery-prev" data-gallery-prev aria-label="Previous image">&#8249;</button>
+              <div class="overlay-frame">
+                <div class="gallery-track">
+                  <img class="project-screenshot gallery-image" src="preview-images/techdrill/home.png" alt="TechDrill Home" loading="lazy"/>
+                  <img class="project-screenshot gallery-image" src="preview-images/techdrill/login.png" alt="TechDrill login page" loading="lazy"/>
+                  <img class="project-screenshot gallery-image active" src="preview-images/techdrill/study-hub.png" alt="TechDrill Study Hub" loading="lazy"/>
+                  <img class="project-screenshot gallery-image" src="preview-images/techdrill/admin-import.png" alt="TechDrill question bank import workflow" loading="lazy"/>
+                </div>
+              </div>
+              <button class="gallery-arrow gallery-next" data-gallery-next aria-label="Next image">&#8250;</button>
+            </div>
+            <div class="overlay-links">
+              <a class="icon-link" href="https://techdrill-six.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Live Site"><svg viewBox="0 0 24 24" width="15" height="15"><use href="icons.svg#icon-external-link"/></svg></a>
+            </div>
+            <button class="overlay-toggle" data-overlay-toggle aria-label="Hide project details" aria-pressed="false">
+              <svg class="icon-eye" viewBox="0 0 24 24" width="16" height="16"><use href="icons.svg#icon-eye"/></svg>
+              <svg class="icon-eye-off" viewBox="0 0 24 24" width="16" height="16"><use href="icons.svg#icon-eye-off"/></svg>
+            </button>
+            <div class="project-overlay-panel">
+              <div class="project-type-row">
+                <div class="project-type">Technical Study Platform &middot; Live</div>
+              </div>
+              <div class="project-header">
+                <div class="project-title">TechDrill</div>
+              </div>
+              <p class="project-one-liner">
+                A technical study and interview-prep platform for turning scattered technical material into structured, focused study sessions. 
+                The goal is to help achieve mastery of a topic by letting you do repeatable active-recall practice. Pick a topic, run focused quizzes, 
+                save questions, build your own study collections, and come back later without losing your progress.
+              </p>
+              <div class="project-stack">
+                <span class="project-tag">TypeScript</span>
+                <span class="project-tag">Next.js</span>
+                <span class="project-tag">Supabase</span>
+                <span class="project-tag">PostgreSQL</span>
+                <span class="project-tag">Tailwind</span>
+                <span class="project-tag">Vercel</span>
+              </div>
+              <ul class="project-bullets">
+                <li>Quizzes can be saved and resumed later, with completed history preserved even as live question banks change</li>
+                <li>Build custom collections, bookmark questions, favorite topics, and organize the study library around what you need</li>
+                <li>Large question banks are managed through a validated admin import workflow with duplicate and conflict detection</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Shot O'Clock -->
+        <div class="project-slide" data-index="4">
           <div class="project-card project-card--overlay project-card--portrait">
             <div class="project-visual project-gallery" data-gallery>
               <button class="gallery-arrow gallery-prev" data-gallery-prev aria-label="Previous image">&#8249;</button>
@@ -347,7 +399,7 @@
         </div>
 
         <!-- Circle Accountability -->
-        <div class="project-slide" data-index="4">
+        <div class="project-slide" data-index="5">
           <div class="project-card project-card--overlay project-card--portrait">
             <div class="project-visual project-gallery" data-gallery>
               <button class="gallery-arrow gallery-prev" data-gallery-prev aria-label="Previous image">&#8249;</button>
@@ -400,7 +452,7 @@
         </div>
 
         <!-- WS-PASS -->
-        <div class="project-slide" data-index="5">
+        <div class="project-slide" data-index="6">
           <div class="project-card project-card--overlay">
             <div class="project-visual">
               <div class="overlay-frame">

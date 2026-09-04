@@ -261,7 +261,30 @@ nav .nav-links a.active { color: var(--accent); }
   color: var(--ink2);
   max-width: 830px;
 }
-.intro-banner p strong { font-weight: 500; color: var(--ink); }
+
+.intro-banner p strong { 
+  font-weight: 500; 
+  color: var(--ink); 
+}
+
+.intro-banner p strong a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+  transition: text-decoration-color 0.2s ease;
+}
+
+.intro-banner p strong a:hover,
+.intro-banner p strong a:focus-visible {
+  text-decoration-color: var(--accent);
+}
+
+.intro-banner p strong a:focus-visible {
+  outline: 1px solid var(--accent);
+  outline-offset: 3px;
+}
 
 /* ── Section Shell ── */
 .section { margin-bottom: 72px; }
